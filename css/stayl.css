@@ -1,0 +1,110 @@
+/* 1. Contenedor principal: Alinea el sidebar y el contenido uno al lado del otro */
+.container {
+    display: flex;
+    min-height: 100vh; /* Hace que ocupe todo el alto de la pantalla */
+}
+
+/* 2. Estilos para tu Sidebar con COLOR */
+.sidebar {
+    background-color: #8A5689; /* Color de fondo (Azul oscuro / Pizarra) */
+    color: #ffffff;            /* Color del texto en blanco */
+    width: 260px;              /* Ancho fijo de la barra lateral */
+    padding: 25px;             /* Espacio interno para separar el texto de los bordes */
+    box-sizing: border-box;    /* Evita que el padding altere el ancho */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #321730; /* Línea sutil divisoria */
+    padding-bottom: 10px;
+}
+
+/* 3. Estilos de los botones del menú */
+.botones-container {
+    display: flex;
+    flex-direction: column;    /* Coloca los botones en lista vertical */
+    gap: 12px;                 /* Separación entre un botón y otro */
+    margin-top: 20px;
+}
+
+.boton-nav, .boton-manual {
+    background-color: #E4DCE7; /* Color de fondo de los botones */
+    color: #321730;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;        /* Bordes suavemente redondeados */
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;          /* Alinea el texto del botón a la izquierda */
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto visual al pasar el cursor sobre los botones */
+.boton-nav:equipos, .boton-manual:equipos {
+    background-color: #3b82f6; /* Cambia a azul brillante */
+}
+
+/* 4. Espaciado del contenido de la derecha */
+.contenido {
+    flex: 1;                   /* Toma todo el espacio restante de la pantalla */
+    padding: 30px;
+    background-color: #bac598; /* Color de fondo claro para el resto de la página */
+}
+
+/* Estilos para el texto nuevo en la zona verde */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d; /* Un color oscuro para que sea legible sobre el verde */
+}
+
+.seccion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seccion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Estilos para controlar el tamaño de tus imágenes */
+.seccion-imagenes {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; /* Centra la imagen en pantalla */
+}
+
+.imagen-adaptable {
+    max-width: 30%;       /* Evita que la imagen sea más ancha que la pantalla */
+    height: auto;          /* Mantiene la proporción original de la foto */
+    border-radius: 10px;    /* Bordes sutilmente redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+}
+
+/* ======================================================= */
+/* NUEVO: Estilos para el cambio de imagen con CSS         */
+/* ======================================================= */
+.imagen-interactiva {
+    /* Define el tamaño de tu imagen */
+    width: 300px;
+    height: 300px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra */
+    cursor: pointer;
+
+    /* 1. IMAGEN POR DEFECTO */
+    /* Asegúrate de cambiar "imagen-normal.jpg" por tu ruta real */
+    background-image: url('https://i.pinimg.com/1200x/45/56/57/4556579ad8cce82afbe8fae24ba55e04.jpg');/*imagen, gif o video */
+
+    /* Ajustes para que la imagen se vea bien */
+    background-size: cover;      /* Escala la imagen para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    transition: background-image 0.3s ease; /* Transición suave de 0.3 segundos */
+}
+ 
+/* 2. IMAGEN AL PASAR EL CURSOR (HOVER) */
+.imagen-interactiva:hover {
+    /* Asegúrate de cambiar "imagen-hover.jpg" por tu ruta real */
+    background-image: url('https://i.pinimg.com/originals/3d/53/e7/3d53e71011c2792de9fd6c82e9396730.gif');
+}

@@ -1,0 +1,327 @@
+/* ======================================================= */
+/* 1. ESTRUCTURA GLOBAL (CORREGIDO PARA EVITAR DESPLAZAMIENTOS) */
+/* ======================================================= */
+body {
+    margin: 0;               /* Elimina los márgenes que el navegador trae por defecto */
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f0f2f5; /* Le da un color gris claro al fondo de la web */
+    display: flex;           
+    flex-direction: column;  /* Fuerza a colocar el Encabezado ARRIBA y el Contenedor ABAJO */
+    min-height: 200vh;       /* Fuerza al body a ocupar el 100% del alto de la pantalla */
+}
+
+/* NUEVO: Asegura que el bloque del encabezado ocupe todo el ancho arriba y se centre */
+.encabezado-superior {
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff; 
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.texto-tachado {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /*que este a la izquierda las img de snoopy y el pepe*/
+    gap: 15px; 
+    margin: 0;
+}
+
+.logo-cabecera {
+    max-width: 33px;
+    height: auto;
+}
+
+/* Contenedor que divide el Menú del Contenido Verde */
+.container {
+    display: flex;
+    flex: 1;                 /* Ocupa todo el espacio vertical restante abajo del título */
+    flex-direction: row;     /* Coloca Sidebar y Contenido lado a lado */
+}
+
+/* ======================================================= */
+/* 2. ESTILOS PARA TU SIDEBAR CON COLOR */
+/* ======================================================= */
+.sidebar {
+    background-color: #8A5689; /* Color de fondo (Azul oscuro / Pizarra) */
+    color: #ffffff;            /* Color del texto en blanco */
+    width: 260px;              /* Ancho fijo de la barra lateral */
+    padding: 35px;             /* Espacio interno para separar el texto de los bordes */
+    box-sizing: border-box;    /* Evita que el padding altere el ancho */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #321730; /* Línea sutil divisoria */
+    padding-bottom: 10px;
+}
+
+/* 3. Estilos de los botones del menú */
+.botones-container {
+    display: flex;
+    flex-direction: column;    /* Coloca los botones en lista vertical */
+    gap: 12px;                 /* Separación entre un botón y otro */
+    margin-top: 20px;
+}
+
+.boton-nav, .boton-manual {
+    background-color: #E4DCE7; /* Color de fondo de los botones */
+    color: #321730;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;        /* Bordes suavemente redondeados */
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;          /* Alinea el texto del botón a la izquierda */
+    transition: background-color 0.2s ease;
+}
+
+/* CORREGIDO: Se cambió el pseudoelemento inexistente ':equipos' por el correcto ':hover' */
+.boton-nav:hover, .boton-manual:hover {
+    background-color: #3b82f6; /* Cambia a azul brillante */
+}
+
+/* ======================================================= */
+/* 4. CONTENIDO DE LA DERECHA (ZONA VERDE) */
+/* ======================================================= */
+.contenido {
+    flex: 1;                   /* Toma todo el espacio restante de la pantalla */
+    padding: 30px;
+    background-color: #bac598; /* Color de fondo claro para el resto de la página */
+}
+
+/* Estilos para el texto nuevo en la zona verde */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d; /* Un color oscuro para que sea legible sobre el verde */
+}
+
+.seccion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seccion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Truco CSS para limpiar el float y evitar que los elementos de abajo se desposicionen */
+.seccion-texto::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Estilos para controlar el tamaño de tus imágenes */
+.seccion-imagenes {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; /* Centra la imagen en pantalla */
+}
+
+.imagen-adaptable {
+    max-width: 30%;       /* Evita que la imagen sea más ancha que la pantalla */
+    height: auto;          /* Mantiene la proporción original de la foto */
+    border-radius: 10px;    /* Bordes sutilmente redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+}
+
+/* NUEVO: Estilos para el cambio de imagen con CSS */
+.imagen-interactiva {
+    /* Define el tamaño de tu imagen */
+    width: 300px;
+    height: 300px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra */
+    cursor: pointer;
+}
+
+/* ======================================================= */
+/* 5. DISTRIBUCIÓN DE TEXTO E IMAGEN EN COLUMNAS */
+/* ======================================================= */
+
+/* Organiza el bloque de texto y la imagen de lado a lado */
+.contenedor-instrucciones {
+    display: flex;
+    align-items: flex-end;       /* Alinea la imagen abajo en la esquina con los últimos párrafos */
+    justify-content: space-between; /* Empuja la imagen al extremo derecho */
+    gap: 40px;                   /* Separación de seguridad para que el texto no toque la foto */
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* Le da prioridad al texto para expandirse en el 60% izquierdo de la zona verde */
+.bloque-texto-camaras {
+    flex: 1;
+    max-width: 60%;
+}
+
+/* Diseña y limita el tamaño de la imagen en la marca roja */
+.mi-imagen.jpg {
+    width: 32%;                  /* Ocupa aproximadamente un tercio de la zona verde */
+    height: auto;                /* Mantiene las proporciones de la foto para que no se estire */
+    max-height: 350px;           /* Evita que se haga demasiado gigante hacia arriba */
+    object-fit: contain;         /* Ajusta la imagen de forma nítida */
+    border-radius: 12px;         /* Bordes redondeados elegantes */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra suave para que resalte sobre el verde */
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo sutil si la imagen tiene transparencias */
+    padding: 6px;
+}
+
+/* ======================================================= */
+/* 6. TARJETAS DE FOTO + TEXTO (ESTILO WIKIPEDIA) */
+/* ======================================================= */
+figure[typeof="mw:File/Thumb"] {
+    display: inline-block;
+    background-color: #f8f9fa; /* Fondo gris muy claro */
+    border: 1px solid #c8ccd1; /* Borde gris perimetral */
+    border-radius: 2px;
+    padding: 3px;
+    margin: 0;
+    font-family: sans-serif;
+    max-width: 100%;
+}
+
+/* Enlace contenedor de la imagen */
+figure[typeof="mw:File/Thumb"] a.mw-file-description {
+    display: block;
+    position: relative; /* Necesario para posicionar el icono ::after */
+    background-color: #ffffff; /* Fondo blanco exclusivo para la foto */
+    border: 1px solid #eaecf0; /* Borde interno que abraza la imagen */
+    text-align: center;
+}
+
+/* Ajustes de la imagen */
+figure[typeof="mw:File/Thumb"] img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Pseudo-elemento ::after (El icono de expandir de Wikipedia abajo a la derecha) */
+figure[typeof="mw:File/Thumb"] a.mw-file-description::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%2372774d" d="M1 4h5v5H1zm5 4h5v3H6zm3-7h3v5H9z" opacity="0.55"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none; /* Evita que interfiera con el clic de la imagen */
+}
+
+/* El texto o epígrafe inferior (WikiBanner.) */
+figcaption {
+    display: block;
+    padding: 6px 4px 4px 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #202122; /* Color de texto gris oscuro típico de Wikipedia */
+}
+
+figcaption a {
+    color: #36b; /* El clásico azul de los links de Wikipedia */
+    text-decoration: none;
+}
+
+figcaption a:hover {
+    text-decoration: underline;
+}
+
+/* Alinea las figuras (imágenes + texto interno) a la derecha */
+figure {
+    float: right;
+    margin: 10px 0 20px 20px; /* Margen para que el texto no toque la imagen */
+    background-color: #f9f9f9; /* Fondo opcional para enmarcar el contenido */
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 300px; /* Limita el ancho máximo para que no ocupe toda la pantalla */
+    text-align: center;
+}
+
+/* ======================================================= */
+/* 7. CARRUSEL DE IMÁGENES */
+/* ======================================================= */
+.carrusel {
+    position: relative;      /* Permite que los botones internos con 'absolute' se alineen respecto a esta caja */
+    width: 100%;             
+    max-width: 600px;        /* Unificado al valor estándar de tu diseño */
+    margin: 30px auto 20px auto;
+    overflow: hidden;        /* Recorta y esconde cualquier parte de las fotos que intente salirse de la caja */
+    border-radius: 12px;     /* Redondea las esquinas del carrusel */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    background-color: #2d1b2d;
+}
+
+.carrusel-fotos {
+    position: relative;
+    width: 100%;             
+    height: 300px;           /* Unificado a tu formato compacto de visor */
+}
+
+.carrusel-fotos .foto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;             
+    height: 100%;            
+    object-fit: contain;     /* Ajusta la imagen para que rellene el espacio sin deformarse ni aplastarse */
+    opacity: 0;
+    display: block;          /* Se cambia a block para permitir la transición de opacidad */
+    transition: opacity 0.5s ease; /* Hace que el cambio de color sea suave */
+    background-color: #43274D;
+    padding: 10px;
+}
+
+/* Regla especial para activar visibilidad en el Carrusel */
+.carrusel-fotos .foto.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.btn-nav {
+    position: absolute;      /* Despega los botones del flujo y los hace "flotar" encima de las fotos */
+    top: 50%;                /* Baja el botón hasta la mitad exacta de la altura del carrusel */
+    transform: translateY(-50%); /* Corrige el eje del propio botón para que el centrado sea perfecto */
+    background-color: rgba(0, 0, 0, 0.6); /* Le da un fondo negro transparente al botón */
+    color: white;            /* Hace que la flecha interna sea de color blanco */
+    border: none;            /* Elimina el borde gris feo que los botones traen por defecto */
+    font-size: 24px;         /* Agranda el tamaño de la flecha */
+    font-weight: bold;
+    padding: 12px 18px;      /* Le da espacio interno al botón para que sea más fácil hacerle clic */
+    cursor: pointer;         /* Cambia el cursor del mouse por la manito al pasar por encima */
+    border-radius: 50%;      /* Transforma el botón cuadrado en un círculo perfecto */
+    transition: background-color 0.3s ease; 
+    z-index: 10;
+}
+
+.btn-nav:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Oscurece el fondo del botón cuando el usuario pasa el mouse */
+}
+
+.antes { 
+    left: 10px;              /* Separa el botón izquierdo del borde izquierdo */
+}
+
+.despues { 
+    right: 10px;             /* Separa el botón derecho del borde derecho */
+}
+
+/* Responsive para el carrusel en pantallas pequeñas */
+@media (max-width: 768px) {
+    .carrusel-fotos {
+        height: 200px;
+    }
+    
+    .btn-nav {
+        padding: 8px 14px;
+        font-size: 18px;
+    }
+}

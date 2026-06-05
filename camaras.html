@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepe - Cámaras</title>
+    <link rel="stylesheet" href="css/camaras.css">  
+    <link rel="icon" href="icono6.png.png" type="image/png">
+</head>
+<body>
+    <!-- TEXTO TACHADO ARRIBA Y CENTRADO -->
+    <div class="encabezado-superior">
+        <h1 class="texto-tachado">
+            <img src="icono2.png" alt="Icono" class="logo-cabecera" style="max-width: 33px;">
+            pepe
+            <img src="icono2.png" alt="Icono" class="logo-cabecera" style="max-width: 33px;">
+        </h1>
+        <p class="subtitulo-tachado"></p>
+    </div>
+
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <div class="botones-container">
+                <a href="equipos.html" style="text-decoration: none; display: block;">
+                    <button class="boton-nav">equipos</button>
+                </a>
+                <a href="manual.html" style="text-decoration: none; display: block;">
+                    <button class="boton-manual">manual de us</button>
+                </a>
+                <a href="index.html" style="text-decoration: none; display: block;">
+                    <button class="boton-nav">Inicio</button>
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+            <div class="seccion-texto">
+<div class="texto-tachado">
+    <h2>CAMARAS</h2> 
+    <img src="camara.png.png" alt="Icono" class="logo-cabecera" style="max-width: 233px;">
+</div>
+                <p>en este apartado explicaremos como usar una camara de ip paso a paso</p>
+               
+                <h3>lista de articulos a usar</h3>
+                <p>⋆ switch 2 unidades</p>
+                <p>⋆ camara/s</p>
+                <p>⋆ cable/s de fibra optica</p>
+                <p>⋆ cables de red</p>
+                <p>⋆ modulo SFP 2 unidades (1 amarillo y otro celeste)</p>
+                <p>⋆ fuente para las switch</p>
+
+                <h2>como conectar la camara</h2>
+                <p>en caso de que sea nueva la camara, busque la ip de la misma usando la marca y el modelo.</p>
+                <p>si no es nueva fijate si en la camara no tiene su ip anotada, en caso de que no este</p>
+                <p>consulte en internet con el modelo y marca sobre como reiniciar la camara</p>
+                <p>en la mayoria suele haber un Boton que dice "reset" en el panel de la camara cerca del poe</p>
+                <p>ya con la camara reseteada busca la ip por defecto</p>
+                <p>y antes que nada cambie la ip de su dispositivo por una mas cercana a la ip de la camara</p>
+                <p>y busca en el navegador su ip</p>
+
+                <!-- IMAGEN FLOTANTE A LA DERECHA -->
+                
+<div>
+<figure typeof="mw:File/Thumb" id="mwATQ">
+<a href="https://aprendacctv.com/wp-content/uploads/2019/01/Diagrama-de-red-camara-IP-con-switch.jpg" class="mw-file-description" id="mwATU">
+<img resource="https://aprendacctv.com/wp-content/uploads/2019/01/Diagrama-de-red-camara-IP-con-switch.jpg" src="https://aprendacctv.com/wp-content/uploads/2019/01/Diagrama-de-red-camara-IP-con-switch.jpg"decoding="async" data-file-width="450" data-file-height="159" data-file-type="bitmap" height="388" width="400" srcset="https://aprendacctv.com/wp-content/uploads/2019/01/Diagrama-de-red-camara-IP-con-switch.jpg" class="mw-file-element" id="mwATY">
+
+
+
+</a>
+
+<figcaption id="mwATc">
+    <p>de esta forma se conectan las cámaras IP para su funcionamiento</p>
+</div>
+
+                <p>boton de reset</p>
+                <p>de esta forma se conectan las camaras ip para su funcionamiento</p>
+
+
+
+                <!-- CARRUSEL DE IMÁGENES -->
+                <div class="carrusel">
+                    <div class="carrusel-fotos">
+                        <img src="1img.png" class="foto active" alt="Imagen 1">
+                        <img src="2img.png" class="foto" alt="Imagen 2">
+                        <img src="3img.png" class="foto" alt="Imagen 3">
+                        <img src="4img.png" class="foto" alt="Imagen 4">
+                        <img src="5img.png" class="foto" alt="Imagen 5">
+                        <img src="6img.png" class="foto" alt="Imagen 6">
+                        <img src="7img.png" class="foto" alt="Imagen 7">
+                    </div>
+                    <button class="btn-nav antes" onclick="cambiarFoto(-1)">&#10094;</button>
+                    <button class="btn-nav despues" onclick="cambiarFoto(1)">&#10095;</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // CARRUSEL MANUAL (sin jQuery)
+        let indiceActual = 0;
+        const fotos = document.querySelectorAll('.carrusel-fotos .foto');
+        
+        function actualizarCarrusel() {
+            fotos.forEach((foto, index) => {
+                foto.classList.remove('active');
+                if (index === indiceActual) {
+                    foto.classList.add('active');
+                }
+            });
+        }
+
+        window.cambiarFoto = function(direccion) {
+            indiceActual += direccion;
+            if (indiceActual < 0) {
+                indiceActual = fotos.length - 1;
+            } else if (indiceActual >= fotos.length) {
+                indiceActual = 0;
+            }
+            actualizarCarrusel();
+        }
+  
+
+  </script>
+        <div>
+            <!-- BOTÓN ATRÁS -->
+          <a href="manual-de-lo-explicado.html" style="text-decoration: none; display: inline-block;">
+              <button class="boton-nav"><<<< atras</button>
+         </a>
+        </div>
+        <div>
+          <a href="manual-de-lo-explicado.html" style="text-decoration: none; display: inline-block;">
+              <button class="boton-nav"><<<< atras</button>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+

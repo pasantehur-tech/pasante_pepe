@@ -1,0 +1,210 @@
+/* ==========================================================================
+   1. ESTRUCTURA PRINCIPAL Y CONTENEDOR
+   ========================================================================== */
+.container {
+    display: flex;
+    min-height: 500vh; /* Hace que ocupe todo el alto de la pantalla */
+}
+
+/* ==========================================================================
+   2. ESTILOS PARA TU SIDEBAR CON COLOR
+   ========================================================================== */
+.sidebar {
+    background-color: #8A5689; /* Color de fondo (Púrpura/Pizarra) */
+    color: #ffffff;            /* Color del texto en blanco */
+    width: 260px;              /* Ancho fijo de la barra lateral */
+    padding: 25px;             /* Espacio interno */
+    box-sizing: border-box;    /* Evita que el padding altere el ancho */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #321730; /* Línea sutil divisoria */
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   3. ESTILOS DE LOS BOTONES DEL MENÚ
+   ========================================================================== */
+.botones-container {
+    display: flex;
+    flex-direction: column;    /* Coloca los botones en lista vertical */
+    gap: 12px;                 /* Separación entre botones */
+    margin-top: 20px;
+}
+
+.boton-nav, .boton-manual {
+    background-color: #E4DCE7; /* Color de fondo de los botones */
+    color: #321730;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;        /* Bordes suavemente redondeados */
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;          /* Alinea el texto a la izquierda */
+    transition: background-color 0.2s ease;
+}
+
+/* CORREGIDO: Efecto visual al pasar el cursor (Cambiado :equipos por :hover) */
+.boton-nav:hover, .boton-manual:hover {
+    background-color: #3b82f6; /* Cambia a azul brillante */
+    color: #ffffff;            /* Texto blanco para mejor contraste sobre azul */
+}
+
+/* ==========================================================================
+   4. ESPACIADO DEL CONTENIDO DE LA DERECHA
+   ========================================================================== */
+.contenido {
+    flex: 1;                   /* Toma todo el espacio restante de la pantalla */
+    padding: 30px;
+    background-color: #bac598; /* Color de fondo claro para el resto de la página */
+}
+
+/* Estilos para el texto nuevo en la zona verde */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d;            /* Legible sobre el verde */
+}
+
+.seccion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seccion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Truco CSS para limpiar el float y evitar que los elementos de abajo se desposicionen */
+.seccion-texto::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ==========================================================================
+   5. CONTROL DE IMÁGENES GENERALES E INTERACTIVAS
+   ========================================================================== */
+.seccion-imagenes {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.imagen-adaptable {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-interactiva {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.imagen-derecha {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   6. DISTRIBUCIÓN DE TEXTO E IMAGEN EN COLUMNAS (FLEXBOX)
+   ========================================================================== */
+.contenedor-instrucciones {
+    display: flex;
+    align-items: flex-end;       /* Alinea la imagen abajo en la esquina */
+    justify-content: space-between; 
+    gap: 40px;                   /* Separación de seguridad */
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.bloque-texto-camaras {
+    flex: 1;
+    max-width: 60%;
+}
+
+/* CORREGIDO: Cambiado .mi-imagen.jpg por .mi-imagen-jpg (Evita errores de clase) */
+.mi-imagen-jpg {
+    width: 32%;                  /* Ocupa un tercio de la zona verde */
+    height: auto;
+    max-height: 350px;           /* Evita que se haga gigante */
+    object-fit: contain; 
+    border-radius: 12px;         /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    background-color: rgba(255, 255, 255, 0.15); 
+    padding: 6px;
+}
+
+/* ==========================================================================
+   7. TARJETA ESTILO WIKIPEDIA (FUSIONADA Y CORREGIDA)
+   ========================================================================== */
+figure[typeof="mw:File/Thumb"] {
+    float: right;                   /* Empuja la tarjeta a la derecha */
+    margin: 10px 0 20px 20px;       /* Separación para que el texto no la toque */
+    background-color: #f8f9fa;      /* Fondo gris Wikipedia */
+    border: 1px solid #c8ccd1;      /* Borde gris Wikipedia */
+    border-radius: 2px;
+    padding: 5px;                   /* Espaciado interno unificado */
+    max-width: 300px;               /* Ancho límite de la tarjeta */
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/* Enlace contenedor de la imagen */
+figure[typeof="mw:File/Thumb"] a.mw-file-description {
+    display: block;
+    position: relative;             /* Necesario para el icono ::after */
+    background-color: #ffffff;      /* Fondo blanco para la foto */
+    border: 1px solid #eaecf0; 
+    text-align: center;
+}
+
+/* Ajustes de la imagen interna */
+figure[typeof="mw:File/Thumb"] img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Icono de expandir abajo a la derecha */
+figure[typeof="mw:File/Thumb"] a.mw-file-description::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%2372774d" d="M1 4h5v5H1zm5 4h5v3H6zm3-7h3v5H9z" opacity="0.55"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none; 
+}
+
+/* Pie de foto inferior */
+figcaption {
+    display: block;
+    padding: 6px 4px 4px 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #202122; 
+}
+
+/* Enlaces dentro del pie de foto */
+figcaption a {
+    color: #36b; 
+    text-decoration: none;
+}
+
+figcaption a:hover {
+    text-decoration: underline;
+}

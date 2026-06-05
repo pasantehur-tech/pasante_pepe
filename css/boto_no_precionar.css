@@ -1,0 +1,47 @@
+/* Quita los márgenes del navegador para que ocupe toda la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000;
+    font-family: sans-serif;
+}
+
+/* Contenedor del Flash + Centrador del GIF */
+.pantalla-flash {
+    width: 100vw;
+    height: 100vh;
+    
+    /* FLEXBOX: El truco definitivo para centrar vertical y horizontalmente */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    
+    /* Animación del flash: dura 0.2 segundos e inicia en bucle infinito */
+    animation: flashCamara 0.2s infinite;
+}
+
+/* Estilos para que el GIF se vea nítido y estilizado en el centro */
+.gif-centrado {
+    max-width: 80%;       /* Evita que se deforme en pantallas chicas */
+    max-height: 70vh;     /* Limita el alto para que no toque los bordes */
+    border-radius: 12px;  /* Bordes apenas redondeados opcionales */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Sombra para despegarlo del fondo */
+    z-index: 10;          /* Asegura que siempre esté por encima del fondo */
+}
+
+/* La animación que cambia el color de fondo de forma intermitente */
+@keyframes flashCamara {
+    0% {
+        background-color: #ffffff; /* Fogonazo blanco del flash */
+    }
+    15% {
+        background-color: #ffffff; /* Mantiene el blanco un milisegundo */
+    }
+    45% {
+        background-color: #000000; /* Oscuridad total */
+    }
+    100% {
+        background-color: #000000; /* Se queda en negro hasta reiniciar el ciclo */
+    }
+}

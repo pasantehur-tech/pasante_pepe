@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sección Equipos - pepe</title> 
+    <link rel="stylesheet" href="css/equipos.css">  
+    <link rel="icon" href="icono6.png.png"
+    type="image/png"></head><body>
+
+    <div class="encabezado-superior">
+        <h1 class="texto-tachado">
+            <img src="icono2.png" alt="Icono" class="logo-cabecera" style="max-width: 33px;"> 
+            pepe 
+            <img src="icono2.png" alt="Icono" class="logo-cabecera" style="max-width: 33px;">
+        </h1>
+        <p class="subtitulo-tachado"></p>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <div class="botones-container">
+                <a href="index.html" style="text-decoration: none; display: block;">
+                    <button class="boton-nav" id="btnNavi">Inicio</button>
+                </a>
+            </div>
+            <div class="botones-container">
+                <a href="manual.html" style="text-decoration: none; display: block;">
+                    <button class="boton-manual" id="btnManual">manual de us</button>
+                </a>
+                <a href="manual-de-lo-explicado.html" style="text-decoration: none; display: block;">
+                    <button class="boton-nav" id="btnNavi2">manual</button>
+                </a>
+            </div>
+        </aside>
+
+        <main class="contenido">
+            <div class="patron-ubic" id="patronTexto"></div>
+
+            <div class="seccion-texto">
+                <h2>Esta es la página de Equipos</h2>
+                <p>agregar "plantillas de planos, equipos y mesas"</p>
+                
+                <label for="subir-plano" class="boton-subir">
+                    Agregar planos
+                </label>
+                <input type="file" id="subir-plano" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="contenedor-plano-gigante">
+                <img id="vista-plano" src="" alt="Vista del plano cargado" style="display: none;">
+            </div>
+        </main>
+
+        <aside class="sidebar-derecho">
+            <h3>Panel de Pines</h3>
+            
+            <div class="control-grupo">
+                <label for="txtIndicador">Texto del marcador:</label>
+                <input type="text" id="txtIndicador" placeholder="Ej: Mesa 1, PC..." value="Nuevo Punto">
+            </div>
+
+            <div class="control-grupo">
+                <label for="colorIndicador">Color del punto:</label>
+                <input type="color" id="colorIndicador" value="#ff2a2a">
+            </div>
+
+            <div class="control-grupo">
+                <label for="tamanoIndicador">Tamaño:</label>
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 2px;">
+                    <span>Pequeño</span>
+                    <span>Grande</span>
+                </div>
+                <input type="range" id="tamanoIndicador" min="15" max="50" value="25">
+            </div>
+
+            <div class="zona-vista-previa">
+                <div class="punto-marcador-preview" id="puntoPreview">
+                    <div class="punto-circulo" id="previewCirculo" style="background-color: #916aa3; width: 25px; height: 25px;"></div>
+                </div>
+            </div>
+
+            <button class="btn-crear" id="btnGenerarPunto">Agregar Punto</button>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('subir-plano').addEventListener('change', function(e) {
+            const archivo = e.target.files[0];
+            if (archivo) {
+                const lector = new FileReader();
+                lector.onload = function(event) {
+                    const img = document.getElementById('vista-plano');
+                    img.src = event.target.result;
+                    img.style.display = 'block'; 
+                }
+                lector.readAsDataURL(archivo);
+            }
+        });
+    </script>
+</body>
+</html>
