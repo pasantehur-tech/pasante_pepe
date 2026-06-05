@@ -9,10 +9,21 @@
 <body>
 
     <div class="pantalla-flash">
-        
-        <img src="https://c.tenor.com/GE8Ca55hX08AAAAd/tenor.gif" alt="Cámara GIF" class="gif-centrado">
+        <img src="https://c.tenor.com/GE8Ca55hX08AAAAd/tenor.gif" alt="Cámara GIF" class="gif-centrado" id="gifCamara">
 
+        <img src="https://i.pinimg.com/736x/3c/7f/40/3c7f40b507af0cea20cfcce9319f5dda.jpg" alt="Imagen Revelada" class="imagen-revelada" id="imgRevelada">
     </div>
+
+    <script>
+        setTimeout(() => {
+            const gif = document.getElementById('gifCamara');
+            const nuevaImg = document.getElementById('imgRevelada');
+
+            // Agrega las clases para activar el desvanecimiento y la revelación
+            gif.classList.add('desvanecer');
+            nuevaImg.classList.add('mostrar');
+        }, 1000); // 30000 milisegundos = 30 segundos
+    </script>
 
 </body>
 </html>
