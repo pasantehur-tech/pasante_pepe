@@ -11,6 +11,7 @@ body {
 .pantalla-flash {
     width: 100vw;
     height: 100vh;
+    position: relative; /* NUEVO: Permite posicionar la segunda imagen encima */
     
     /* FLEXBOX: El truco definitivo para centrar vertical y horizontalmente */
     display: flex;
@@ -28,6 +29,8 @@ body {
     border-radius: 12px;  /* Bordes apenas redondeados opcionales */
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Sombra para despegarlo del fondo */
     z-index: 10;          /* Asegura que siempre esté por encima del fondo */
+    opacity: 1;
+    transition: opacity 2s ease; /* Transición suave de 2 segundos al desvanecerse */
 }
 
 /* La animación que cambia el color de fondo de forma intermitente */
@@ -44,4 +47,32 @@ body {
     100% {
         background-color: #000000; /* Se queda en negro hasta reiniciar el ciclo */
     }
+}
+
+/* ======================================================= */
+/* NUEVO: ESTADOS DE DESVANECIMIENTO Y REVELACIÓN          */
+/* ======================================================= */
+
+/* Clase que aplica el JS al GIF a los 30 segundos */
+.gif-centrado.desvanecer {
+    opacity: 0;
+    pointer-events: none; /* Evita cualquier interacción una vez oculto */
+}
+
+/* Configuración inicial de la imagen oculta de Pinterest */
+.imagen-revelada {
+    position: absolute;
+    max-width: 80%;
+    max-height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 0 px rgba(0, 0, 0, 0.7);
+    z-index: 9;           /* Queda justo por debajo del GIF originalmente */
+    opacity: 0;           /* Totalmente invisible al principio */
+    transition: opacity 15s ease; /* Aparece de forma gradual durante 2 segundos */
+}
+
+/* Clase que aplica el JS a la nueva imagen a los 30 segundos */
+.imagen-revelada.mostrar {
+    opacity: 1;
+    z-index: 11;          /* Pasa al frente una vez revelada */
 }
