@@ -95,7 +95,7 @@ body {
 /* Estilos para el texto nuevo en la zona verde */
 .seccion-texto {
     margin-top: 25px;
-    color: #2d1b2d; /* Un color oscuro para que sea legible sobre el verde */
+    color: #2D1B2D color /*curo para que sea legible sobre el verde */
 }
 
 .seccion-texto h2 {
@@ -223,7 +223,7 @@ figcaption {
     padding: 6px 4px 4px 4px;
     font-size: 14px;
     line-height: 1.4;
-    color: #202122; /* Color de texto gris oscuro típico de Wikipedia */
+    color: #000000; /* Color de texto gris oscuro típico de Wikipedia */
 }
 
 figcaption a {
@@ -325,3 +325,4 @@ figure {
         font-size: 18px;
     }
 }
+
